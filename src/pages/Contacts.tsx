@@ -1,4 +1,5 @@
 import React from "react";
+import ContactForm from "../components/contactForm/ContactForm";
 /**
  *
  * @returns JSX.Element
@@ -14,7 +15,12 @@ import React from "react";
  * display info when there are no contacts to display
  */
 const Contacts: () => JSX.Element = () => {
-  return <div>Contacts</div>;
+  return (
+    <div>
+      Contacts
+      <ContactForm />
+    </div>
+  );
 };
 
 export default Contacts;

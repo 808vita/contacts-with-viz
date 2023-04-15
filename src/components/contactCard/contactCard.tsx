@@ -1,4 +1,5 @@
 import React from "react";
+import ButtonEditDelete from "./buttonEditDelete/ButtonEditDelete";
 /**
  *
  * @returns JSX.Element
@@ -6,7 +7,12 @@ import React from "react";
  * contact card component
  */
 const contactCard: () => JSX.Element = () => {
-  return <div>contactCard</div>;
+  return (
+    <div>
+      contactCard
+      <ButtonEditDelete />
+    </div>
+  );
 };
 
 export default contactCard;
