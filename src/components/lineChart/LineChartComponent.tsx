@@ -1,4 +1,16 @@
 import React from "react";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+import { Line } from "react-chartjs-2";
+import { useQuery } from "react-query";
 /**
  *
  * @returns JSX.Element
@@ -6,7 +18,73 @@ import React from "react";
  * line chart component
  */
 const LineChartComponent: () => JSX.Element = () => {
-  return <div>LineChartComponent</div>;
+  ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+  );
+
+  const {
+    isLoading,
+    error,
+    data: dateWiseData,
+  } = useQuery("dateWise", () =>
+    fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=all").then(
+      (res) => res.json()
+    )
+  );
+
+  if (isLoading) return <h2>'Loading...'</h2>;
+
+  if (error) return <h2>{"An error has occurred"}</h2>;
+
+  console.log(dateWiseData, "data");
+  const dates = Object.keys(dateWiseData?.cases).slice(-50);
+
+  const activeCases = Object.values(dateWiseData?.cases).slice(-50);
+
+  console.log(dates, "dates");
+  console.log(typeof dates[0], dates[0]);
+  console.log(activeCases, "activeCases");
+
+  const data = {
+    labels: dates,
+    datasets: [
+      {
+        label: "Active Cases",
+        data: activeCases,
+        borderColor: "rgb(235, 162, 53)",
+        backgroundColor: "rgba(235, 162, 235, 0.5)",
+      },
+    ],
+  };
+
+  return (
+    <div>
+      <Line options={options} data={data} />;
+    </div>
+  );
 };
 
 export default LineChartComponent;
+
+export const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: "top" as const,
+    },
+    title: {
+      display: true,
+      text: "Recent Active Cases Trend",
+    },
+  },
+};
+
+
+
+
