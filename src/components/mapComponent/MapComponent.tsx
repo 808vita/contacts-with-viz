@@ -36,7 +36,7 @@ const MapComponent: () => JSX.Element = () => {
     isLoading,
     error,
     data: countriesData,
-  } = useQuery("repoData", () =>
+  } = useQuery("countryWiseData", () =>
     fetch("https://disease.sh/v3/covid-19/countries").then((res) => res.json())
   );
 
