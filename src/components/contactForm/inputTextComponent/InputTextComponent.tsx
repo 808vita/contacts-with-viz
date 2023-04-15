@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import useContactFormContext from "../hooks/useContactFormContext";
 
 const InputTextComponent = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-
-  const placeholder = "oof place";
+  const { firstName, setFirstName, lastName, setLastName } =
+    useContactFormContext();
 
   return (
     <div>
@@ -15,7 +13,7 @@ const InputTextComponent = () => {
           type="text"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
-          placeholder={placeholder}
+          placeholder="Enter first name"
           required
         />
         <br />
@@ -26,7 +24,7 @@ const InputTextComponent = () => {
           type="text"
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
-          placeholder={placeholder}
+          placeholder="Enter last name"
           required
         />
         <br />

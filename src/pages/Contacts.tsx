@@ -1,5 +1,6 @@
 import React from "react";
 import ContactForm from "../components/contactForm/ContactForm";
+import ContactFormContextProvider from "../components/contactForm/hooks/ContactFormContext";
 /**
  *
  * @returns JSX.Element
@@ -16,10 +17,9 @@ import ContactForm from "../components/contactForm/ContactForm";
  */
 const Contacts: () => JSX.Element = () => {
   return (
-    <div>
-      Contacts
+    <ContactFormContextProvider>
       <ContactForm />
-    </div>
+    </ContactFormContextProvider>
   );
 };
 

@@ -1,33 +1,34 @@
 import React from "react";
+import useContactFormContext from "../hooks/useContactFormContext";
 
 const InputRadioComponent = () => {
+  const { status, setStatus } = useContactFormContext();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedOption = e?.target?.value;
+    setStatus(selectedOption);
+  };
+
   return (
     <div>
       Status:
-      <div className="form-check">
+      <div>
         <input
-          className="form-check-input"
           type="radio"
-          name="exampleRadios"
-          id="exampleRadios1"
-          value="option1"
+          value="Active"
+          name="staus"
+          checked={status === "Active"}
+          onChange={handleChange}
         />
-        <label className="form-check-label" htmlFor="exampleRadios1">
-          Active
-        </label>
-      </div>
-      <div className="form-check">
+        Active
         <input
-          className="form-check-input"
           type="radio"
-          name="exampleRadios"
-          id="exampleRadios2"
-          value="option2"
-          checked
+          value="Inactive"
+          name="staus"
+          checked={status === "Inactive"}
+          onChange={handleChange}
         />
-        <label className="form-check-label" htmlFor="exampleRadios2">
-          Inactive
-        </label>
+        Inactive
       </div>
     </div>
   );
