@@ -7,17 +7,23 @@ import Contacts from "./pages/Contacts";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 import Layout from "./layout/Layout";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+// Create a client
+const queryClient: QueryClient = new QueryClient();
 
 function App() {
   return (
-    <Layout>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contacts" element={<Contacts />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Layout>
+    <QueryClientProvider client={queryClient}>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contacts" element={<Contacts />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Layout>
+    </QueryClientProvider>
   );
 }
 

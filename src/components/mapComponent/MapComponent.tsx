@@ -3,6 +3,8 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import markerIconPng from "leaflet/dist/images/marker-icon.png";
 import { Icon } from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { useQuery } from "react-query";
+
 /**
  *
  * @returns JSX.Element
@@ -30,29 +32,55 @@ const MapComponent: () => JSX.Element = () => {
     },
   ];
 
+  const {
+    isLoading,
+    error,
+    data: countriesData,
+  } = useQuery("repoData", () =>
+    fetch("https://disease.sh/v3/covid-19/countries").then((res) => res.json())
+  );
+
+  if (isLoading) return <h2>'Loading...'</h2>;
+
+  if (error) return <h2>{"An error has occurred"}</h2>;
+
+  // console.log(countriesData, "data");
+
   return (
     <div>
-      <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={true}>
+      <MapContainer center={[20, 77]} zoom={3} scrollWheelZoom={true}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        {markersData.map((country) => (
+        {countriesData.map((country: any) => (
           // map through markers data and use the below jsx to place markers and popup data
           <Marker
-            position={country.markerPosArray}
+            key={country?.country}
+            position={[country?.countryInfo?.lat, country?.countryInfo?.long]}
             icon={
               new Icon({
-                iconUrl: country.markerIconUrl,
+                iconUrl: markerIconPng,
                 iconSize: [25, 41],
                 iconAnchor: [12, 41],
               })
             }
           >
             <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.{" "}
-              {country.markerIconUrl}
+              <div>
+                <img
+                  src={country?.countryInfo?.flag}
+                  onLoad={(event) =>
+                    //@ts-ignore
+                    (event.target.style.display = "inline-block")
+                  }
+                />
+                <p>Country:{country?.country}</p>
+                <p>Total Active:{country?.active}</p>
+                <p>Recovered:{country?.recovered}</p>
+                <p>Death:{country?.deaths}</p>
+              </div>
             </Popup>
           </Marker>
         ))}
