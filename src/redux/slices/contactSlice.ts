@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
+
 export interface ContactData {
   id: string;
   firstName: string;
@@ -45,7 +46,15 @@ export const contactSlice = createSlice({
      * edit contact data in contactList[] using id
      */
     editContact: (state, action: PayloadAction<ContactData>) => {
-      state.contactList.push(action.payload);
+      const { firstName, lastName, status, id } = action.payload;
+
+      state.contactList = state.contactList.map((contact: ContactData) => {
+        if (contact.id === id) {
+          return { ...contact, firstName, lastName, status };
+        } else {
+          return contact;
+        }
+      });
     },
     /**
      *

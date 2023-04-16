@@ -1,26 +1,28 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import { addContact } from "../../redux/slices/contactSlice";
-
+import { addContact, editContact } from "../../redux/slices/contactSlice";
+import { useNavigate, useParams } from "react-router-dom";
+import useContactFormContext from "../contactForm/hooks/useContactFormContext";
 interface contactData {
   firstName: string;
   lastName: string;
   status: string;
 }
 
-interface contactDataWithId extends contactData {
+export interface contactDataWithId extends contactData {
   id: string;
 }
 
-interface Props {
-  data: contactData;
-}
-
-const SingleBigButton = ({ data }: Props) => {
+const SingleBigButton = () => {
+  const { firstName, lastName, status, editId } = useContactFormContext();
   const contactList = useSelector((state: RootState) => state.contact);
-  const dispatch = useDispatch();
 
+  const { path } = useParams();
+  console.log(path, "params");
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   /**
    * add new contact to store
    * and redirect back to contact page
@@ -28,11 +30,39 @@ const SingleBigButton = ({ data }: Props) => {
   const addContactToStore = () => {
     const genId = String(new Date().getTime());
 
-    const contactWithId: contactDataWithId = { ...data, id: genId };
+    const contactWithId: contactDataWithId = {
+      firstName,
+      lastName,
+      status,
+      id: genId,
+    };
 
     console.log("contactWithId", contactWithId);
     console.log("contactList", contactList);
     dispatch(addContact(contactWithId));
+    navigate("/contacts");
+  };
+
+  /**
+   * edit a contact in store using id
+   * and redirect back to contact page
+   */
+  const editContactInStore = () => {
+    const genId = String(new Date().getTime());
+
+    const contactWithId: contactDataWithId = {
+      firstName,
+      lastName,
+      status,
+      id: editId,
+    };
+
+    console.log("contactWithId", contactWithId);
+    console.log("contactList", contactList);
+
+    dispatch(editContact(contactWithId));
+
+    navigate("/contacts");
   };
 
   /**
@@ -44,12 +74,33 @@ const SingleBigButton = ({ data }: Props) => {
    */
   const clickHandler = () => {
     console.log("clicked");
-    addContactToStore();
+
+    if (path === "create") {
+      addContactToStore();
+      return;
+    }
+
+    if (path === "edit") {
+      console.log("edit oof");
+
+      // need validations
+      // check if id exists?
+      editContactInStore();
+      return;
+    }
   };
 
   const buttonText = "oof";
 
-  return <button onClick={clickHandler}>{buttonText}</button>;
+  return (
+    <button onClick={clickHandler}>
+      {path === "create"
+        ? "Save Contact"
+        : path === "edit"
+        ? "Save Edited Contact"
+        : "default button"}
+    </button>
+  );
 };
 
 export default SingleBigButton;

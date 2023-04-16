@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 import Layout from "./layout/Layout";
 import { QueryClient, QueryClientProvider } from "react-query";
+import ContactsCreateEdit from "./pages/ContactsCreateEdit";
 
 // Create a client
 const queryClient: QueryClient = new QueryClient();
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contacts" element={<Contacts />} />
+          <Route path="/contacts/:path" element={<ContactsCreateEdit />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

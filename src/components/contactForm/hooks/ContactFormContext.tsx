@@ -6,7 +6,7 @@ import {
   ReactNode,
 } from "react";
 
-interface Props {
+export interface Props {
   children: ReactNode;
 }
 
@@ -17,6 +17,8 @@ interface ContactContextInterface {
   setLastName: Dispatch<SetStateAction<string>>;
   status: string;
   setStatus: Dispatch<SetStateAction<string>>;
+  editId: string;
+  setEditId: Dispatch<SetStateAction<string>>;
 }
 
 export const ContactFormContext = createContext<ContactContextInterface>({
@@ -26,12 +28,15 @@ export const ContactFormContext = createContext<ContactContextInterface>({
   setLastName: () => {},
   status: "",
   setStatus: () => {},
+  editId: "",
+  setEditId: () => {},
 });
 
 const ContactFormContextProvider = ({ children }: Props) => {
   const [firstName, setFirstName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
   const [status, setStatus] = useState<string>("Inactive");
+  const [editId, setEditId] = useState<string>("");
 
   return (
     <ContactFormContext.Provider
@@ -42,6 +47,8 @@ const ContactFormContextProvider = ({ children }: Props) => {
         setLastName,
         status,
         setStatus,
+        editId,
+        setEditId,
       }}
     >
       {children}

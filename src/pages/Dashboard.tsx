@@ -1,7 +1,6 @@
-import React from "react";
 import LineChartComponent from "../components/lineChart/LineChartComponent";
 import MapComponent from "../components/mapComponent/MapComponent";
-import { useQuery } from "react-query";
+
 /**
  *
  * @returns JSX.Element

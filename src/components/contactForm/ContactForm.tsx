@@ -17,7 +17,7 @@ const ContactForm: () => JSX.Element = () => {
     <div>
       <InputTextComponent />
       <InputRadioComponent />
-      <SingleBigButton data={{ firstName, lastName, status }} />
+      <SingleBigButton />
     </div>
   );
 };
