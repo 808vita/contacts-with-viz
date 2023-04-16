@@ -1,4 +1,5 @@
 import React from "react";
+import HomeCardComponent from "../components/homeCard/HomeCardComponent";
 /**
  *
  * @returns JSX.Element
@@ -6,7 +7,11 @@ import React from "react";
  * Home page
  */
 const Home: () => JSX.Element = () => {
-  return <div>Home</div>;
+  return (
+    <>
+      <HomeCardComponent />
+    </>
+  );
 };
 
 export default Home;
