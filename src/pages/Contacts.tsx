@@ -1,10 +1,8 @@
-import React from "react";
-import ContactForm from "../components/contactForm/ContactForm";
-import ContactFormContextProvider from "../components/contactForm/hooks/ContactFormContext";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { useNavigate } from "react-router-dom";
 import ContactCard from "../components/contactCard/ContactCard";
+import NoContactInfo from "../components/noContactInfo/NoContactInfo";
 
 /**
  *
@@ -35,6 +33,7 @@ const Contacts: () => JSX.Element = () => {
       {contactList.map((contact) => (
         <ContactCard key={contact?.id} contact={contact} />
       ))}
+      {contactList.length === 0 && <NoContactInfo />}
     </>
   );
 };

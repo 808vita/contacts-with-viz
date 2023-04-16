@@ -6,7 +6,13 @@ import React from "react";
  * side bar component
  */
 const Sidebar: () => JSX.Element = () => {
-  return <div>Sidebar</div>;
+  return (
+    <div>
+      Sidebar
+      <p>Contacts</p>
+      <p>Dashboard</p>
+    </div>
+  );
 };
 
 export default Sidebar;
