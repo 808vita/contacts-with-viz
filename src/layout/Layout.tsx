@@ -15,7 +15,7 @@ const Layout: ({ children }: any) => JSX.Element = ({ children }) => {
     <div className="flex flex-col flex-auto h-full lg:flex-row">
       <MobileMenu />
       <SidebarMd />
-      <div className="grow lg:max-w-screen-xl">
+      <div className="grow lg:max-w-screen-2xl">
         <Navbar />
         <div className="md:m-5">{children}</div>
       </div>

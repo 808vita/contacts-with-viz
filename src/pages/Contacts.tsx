@@ -29,7 +29,7 @@ const Contacts: () => JSX.Element = () => {
     <div className="flex flex-col flex-auto justify-center items-center">
       <button
         onClick={() => navigate("/contacts/create")}
-        className="text-xl bg-violet-100 mt-10 me-5 mx-5 p-5 border hover:bg-violet-300"
+        className="text-2xl font-thin bg-violet-100 mt-10 me-5 mx-5 p-5 border hover:bg-violet-300"
       >
         Create Contact
       </button>
@@ -42,8 +42,8 @@ const Contacts: () => JSX.Element = () => {
       {contactList.length === 0 && (
         <ErrorInfoBox>
           <>
-            <h5 className="text-2xl">No Contact Found.</h5>
-            <h5 className="text-2xl">
+            <h5 className="text-2xl font-thin">No Contact Found.</h5>
+            <h5 className="text-2xl font-thin">
               Please add contact from Create Contact Button
             </h5>
           </>

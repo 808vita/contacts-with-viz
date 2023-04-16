@@ -41,7 +41,7 @@ const LineChartComponent: () => JSX.Element = () => {
 
   if (isLoading)
     return (
-      <h5 className="text-2xl p-5 mt-5 mb-5 border bg-violet-100">
+      <h5 className="text-2xl font-thin p-5 mt-5 mb-5 border bg-violet-100">
         Loading chart...
       </h5>
     );
@@ -49,7 +49,7 @@ const LineChartComponent: () => JSX.Element = () => {
   if (error) {
     return (
       <ErrorInfoBox>
-        <h5 className="text-2xl">
+        <h5 className="text-2xl font-thin">
           An error occured! Please refresh page & try again.
         </h5>
       </ErrorInfoBox>

@@ -37,14 +37,14 @@ const ButtonEditDelete = ({ contactId }: Props) => {
   return (
     <div>
       <button
-        className="text-xl p-2 mt-5 mb-5 border w-full bg-lime-100 hover:bg-lime-300"
+        className="text-2xl font-thin p-2 mt-5 mb-5 border w-full bg-lime-100 hover:bg-lime-300"
         onClick={handleEditClick}
       >
         Edit
       </button>
 
       <button
-        className="text-xl p-2 mb-5 border w-full  bg-red-100 hover:bg-red-400"
+        className="text-2xl font-thin p-2 mb-5 border w-full  bg-red-100 hover:bg-red-400"
         onClick={handleDeleteClick}
       >
         Delete

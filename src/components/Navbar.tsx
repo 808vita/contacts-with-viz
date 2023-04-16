@@ -37,7 +37,7 @@ const Navbar: () => JSX.Element = () => {
 
   return (
     <nav className="bg-violet-100 flex justify-center items-center p-5 ">
-      <span className="text-3xl">{navText}</span>
+      <span className="text-3xl font-thin">{navText}</span>
     </nav>
   );
 };

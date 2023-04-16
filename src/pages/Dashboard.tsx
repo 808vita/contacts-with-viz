@@ -1,5 +1,6 @@
 import LineChartComponent from "../components/lineChart/LineChartComponent";
 import MapComponent from "../components/mapComponent/MapComponent";
+import StatBoardComponent from "../components/statBoard/StatBoardComponent";
 
 /**
  *
@@ -25,6 +26,7 @@ const Dashboard: () => JSX.Element = () => {
       Dashboard
       <LineChartComponent />
       <MapComponent />
+      <StatBoardComponent />
     </div>
   );
 };

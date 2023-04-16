@@ -8,7 +8,7 @@ const InputTextComponent = () => {
     <div className="w-full">
       <div className=" flex flex-col justify-center items-center pt-5 pb-5">
         <div className=" flex justify-center items-center mt-5 mb-5 w-full">
-          <label htmlFor="fName" className="text-xl m-5 w-1/5">
+          <label htmlFor="fName" className="text-xl font-thin m-5 w-1/5">
             First Name
           </label>
           <input
@@ -23,7 +23,7 @@ const InputTextComponent = () => {
         </div>
 
         <div className=" flex justify-center items-center mt-5 mb-5 w-full">
-          <label htmlFor="lName" className="text-xl m-5 w-1/5">
+          <label htmlFor="lName" className="text-xl font-thin m-5 w-1/5">
             Last Name
           </label>
           <input
