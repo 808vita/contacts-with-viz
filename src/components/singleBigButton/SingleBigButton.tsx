@@ -95,7 +95,7 @@ const SingleBigButton = () => {
   return (
     <button
       onClick={clickHandler}
-      className="bg-violet-100 mt-10 me-5 mx-5 p-5 border hover:bg-violet-300"
+      className="text-xl bg-violet-100 mt-10 mb-5 me-5 mx-5 p-5 border hover:bg-violet-300"
     >
       {path === "create"
         ? "Save Contact"

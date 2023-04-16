@@ -9,29 +9,49 @@ const InputRadioComponent = () => {
     setStatus(selectedOption);
   };
 
-  return (
-    <div>
-      Status:
-      <div>
-        <input
-          type="radio"
-          value="Active"
-          name="staus"
-          checked={status === "Active"}
-          onChange={handleChange}
-        />
-        Active
-        <input
-          type="radio"
-          value="Inactive"
-          name="staus"
-          checked={status === "Inactive"}
-          onChange={handleChange}
-        />
-        Inactive
-      </div>
-    </div>
-  );
+ const handleClick = (status: string) => {
+   setStatus(status);
+ };
+
+ return (
+   <div className="flex justify-center items-center">
+     <span className="text-xl m-5 w-1/4">Status</span>
+     <div className="flex flex-col justify-center items-start w-3/4">
+       <div
+         className="flex justify-center items-center p-5 cursor-pointer"
+         onClick={() => handleClick("Active")}
+       >
+         <input
+           type="radio"
+           value="Active"
+           name="staus"
+           checked={status === "Active"}
+           onChange={handleChange}
+           className="h-5 w-5 me-3 cursor-pointer"
+         />
+         <label htmlFor="staus" className="text-2xl cursor-pointer">
+           Active
+         </label>
+       </div>
+       <div
+         className="flex justify-center items-center p-5 cursor-pointer"
+         onClick={() => handleClick("Inactive")}
+       >
+         <input
+           type="radio"
+           value="Inactive"
+           name="staus"
+           checked={status === "Inactive"}
+           onChange={handleChange}
+           className="h-5 w-5 me-3 cursor-pointer"
+         />
+         <label htmlFor="staus" className="text-2xl cursor-pointer">
+           Inactive
+         </label>
+       </div>
+     </div>
+   </div>
+ );
 };
 
 export default InputRadioComponent;

@@ -26,7 +26,9 @@ const ContactsCreateEdit: () => JSX.Element = () => {
   if (path === "create") {
     return (
       <ContactFormContextProvider>
-        <ContactForm />
+        <div className="flex justify-center items-center">
+          <ContactForm />
+        </div>
       </ContactFormContextProvider>
     );
   }
