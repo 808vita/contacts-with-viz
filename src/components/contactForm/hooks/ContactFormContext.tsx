@@ -6,7 +6,7 @@ import {
   ReactNode,
 } from "react";
 
-export interface Props {
+export interface PropsChildren {
   children: ReactNode;
 }
 
@@ -33,13 +33,13 @@ export const ContactFormContext = createContext<ContactContextInterface>({
 });
 
 /**
- * 
- * @param children 
- *  
+ *
+ * @param children
+ *
  * contact form context provider
- * 
+ *
  */
-const ContactFormContextProvider = ({ children }: Props) => {
+const ContactFormContextProvider = ({ children }: PropsChildren) => {
   const [firstName, setFirstName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
   const [status, setStatus] = useState<string>("Inactive");

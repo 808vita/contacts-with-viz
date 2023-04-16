@@ -1,7 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const MenuItems = ({ handleMenuClick }: any) => {
+export interface PropsHandleMenuClick {
+  handleMenuClick: () => void;
+}
+
+const MenuItems = ({ handleMenuClick }: PropsHandleMenuClick) => {
   const navigate = useNavigate();
 
   return (

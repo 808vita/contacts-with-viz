@@ -1,6 +1,26 @@
 import React from "react";
 
-const statCardName: any = {
+interface StatCardName {
+  todayCases: string;
+  todayRecovered: string;
+  todayDeaths: string;
+  cases: string;
+  recovered: string;
+  deaths: string;
+  tests: string;
+  active: string;
+  critical: string;
+  affectedCountries: string;
+  population: string;
+  casesPerOneMillion: string;
+  recoveredPerOneMillion: string;
+  deathsPerOneMillion: string;
+  testsPerOneMillion: string;
+  activePerOneMillion: string;
+  criticalPerOneMillion: string;
+}
+
+const statCardName: StatCardName | any = {
   todayCases: "Today Cases",
   todayRecovered: "Today Recovered",
   todayDeaths: "Today Deaths",
@@ -19,7 +39,13 @@ const statCardName: any = {
   activePerOneMillion: "Active/Million",
   criticalPerOneMillion: "Crtical/Million",
 };
-const StatCardComponent = ({ heading, data }: any) => {
+
+interface Props {
+  heading: any;
+  data: string;
+}
+
+const StatCardComponent = ({ heading, data }: Props) => {
   return (
     <div className="flex flex-col p-10 m-5 justify-center items-center bg-violet-200 hover:bg-violet-100">
       <h5 className="text-3xl font-thin">{statCardName?.[heading]}</h5>

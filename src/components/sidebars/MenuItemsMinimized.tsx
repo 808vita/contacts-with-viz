@@ -1,7 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { PropsHandleMenuClick } from "./MenuItems";
 
-const MenuItemsMinimized = ({ handleMenuClick }: any) => {
+const MenuItemsMinimized = ({ handleMenuClick }: PropsHandleMenuClick) => {
   const navigate = useNavigate();
 
   return (

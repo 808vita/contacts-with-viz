@@ -6,33 +6,28 @@ import "leaflet/dist/leaflet.css";
 import { useQuery } from "react-query";
 import ErrorInfoBox from "../noContactInfo/ErrorInfoBox";
 
+
+interface CountryInfo {
+  lat: number;
+  long: number;
+  flag: string;
+}
+
+interface CountryData {
+  country: string;
+  active: string;
+  recovered: string;
+  deaths: string;
+  countryInfo: CountryInfo;
+}
+
 /**
  *
  * @returns JSX.Element
  *
  * map component
  */
-
-interface MarkersDataInterface {
-  markerPosArray: [number, number];
-  markerIconUrl: string;
-}
-
 const MapComponent: () => JSX.Element = () => {
-  // mock markers data
-  // to be modified later
-  const markersData: MarkersDataInterface[] = [
-    {
-      markerPosArray: [51.505, -0.09],
-      markerIconUrl: markerIconPng,
-    },
-    {
-      markerPosArray: [51.52, -0.09],
-      markerIconUrl:
-        "https://avatars.githubusercontent.com/u/97225946?s=48&v=4",
-    },
-  ];
-
   const {
     isLoading,
     error,
@@ -68,7 +63,7 @@ const MapComponent: () => JSX.Element = () => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        {countriesData.map((country: any) => (
+        {countriesData.map((country: CountryData) => (
           // map through markers data and use the below jsx to place markers and popup data
           <Marker
             key={country?.country}

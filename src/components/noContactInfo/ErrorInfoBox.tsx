@@ -1,4 +1,5 @@
 import React from "react";
+import { PropsChildren } from "../contactForm/hooks/ContactFormContext";
 
 /**
  *
@@ -6,7 +7,7 @@ import React from "react";
  *
  * to be diplayed no contacts found in store
  */
-const ErrorInfoBox = ({ children }: any) => {
+const ErrorInfoBox = ({ children }: PropsChildren) => {
   return (
     <div className="flex flex-col md:flex-row flex-auto border-solid border-2 border-grey-600 p-10 m-5 mt-10 bg-violet-50">
       <div className="flex justify-center items-center">

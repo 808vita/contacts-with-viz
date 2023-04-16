@@ -1,4 +1,5 @@
 import Navbar from "../components/Navbar";
+import { PropsChildren } from "../components/contactForm/hooks/ContactFormContext";
 import MobileMenu from "../components/sidebars/MobileMenu";
 import SidebarMd from "../components/sidebars/SidebarMd";
 
@@ -10,7 +11,7 @@ import SidebarMd from "../components/sidebars/SidebarMd";
  *
  * to be placed in root level
  */
-const Layout: ({ children }: any) => JSX.Element = ({ children }) => {
+const Layout: ({ children }: PropsChildren) => JSX.Element = ({ children }) => {
   return (
     <div className="flex flex-col flex-auto h-full lg:flex-row">
       <MobileMenu />

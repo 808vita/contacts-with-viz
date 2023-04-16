@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import { Props } from "./hooks/ContactFormContext";
+import { PropsChildren } from "./hooks/ContactFormContext";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import useContactFormContext from "./hooks/useContactFormContext";
 import ErrorInfoBox from "../noContactInfo/ErrorInfoBox";
 
-const EditWrapper = ({ children }: Props) => {
+const EditWrapper = ({ children }: PropsChildren) => {
   const [searchParams] = useSearchParams();
   const cid = searchParams.get("cid");
   console.log(cid, "editContactId");
