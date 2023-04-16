@@ -4,6 +4,7 @@ import markerIconPng from "leaflet/dist/images/marker-icon.png";
 import { Icon } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useQuery } from "react-query";
+import ErrorInfoBox from "../noContactInfo/ErrorInfoBox";
 
 /**
  *
@@ -42,7 +43,15 @@ const MapComponent: () => JSX.Element = () => {
 
   if (isLoading) return <h2>'Loading...'</h2>;
 
-  if (error) return <h2>{"An error has occurred"}</h2>;
+  if (error) {
+    return (
+      <ErrorInfoBox>
+        <h5 className="text-2xl">
+          An error occured! Please refresh page & try again.
+        </h5>
+      </ErrorInfoBox>
+    );
+  }
 
   // console.log(countriesData, "data");
 

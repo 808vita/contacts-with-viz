@@ -11,6 +11,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { useQuery } from "react-query";
+import ErrorInfoBox from "../noContactInfo/ErrorInfoBox";
 /**
  *
  * @returns JSX.Element
@@ -40,7 +41,15 @@ const LineChartComponent: () => JSX.Element = () => {
 
   if (isLoading) return <h2>'Loading...'</h2>;
 
-  if (error) return <h2>{"An error has occurred"}</h2>;
+  if (error) {
+    return (
+      <ErrorInfoBox>
+        <h5 className="text-2xl">
+          An error occured! Please refresh page & try again.
+        </h5>
+      </ErrorInfoBox>
+    );
+  }
 
   console.log(dateWiseData, "data");
   const dates = Object.keys(dateWiseData?.cases).slice(-50);

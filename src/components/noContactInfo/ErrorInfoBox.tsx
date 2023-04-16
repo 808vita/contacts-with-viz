@@ -6,9 +6,9 @@ import React from "react";
  *
  * to be diplayed no contacts found in store
  */
-const NoContactInfo = () => {
+const ErrorInfoBox = ({ children }: any) => {
   return (
-    <div className="flex flex-col md:flex-row flex-auto border-solid border-2 border-grey-600 p-5 m-5 bg-violet-50">
+    <div className="flex flex-col md:flex-row flex-auto border-solid border-2 border-grey-600 p-10 m-5 mt-10 bg-violet-50">
       <div className="flex justify-center items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -25,13 +25,15 @@ const NoContactInfo = () => {
       </div>
 
       <div className="p-5">
-        <h5 className="text-2xl">No Contact Found.</h5>
+        {/* <h5 className="text-2xl">No Contact Found.</h5>
         <h5 className="text-2xl">
           Please add contact from Create Contact Button
-        </h5>
+        </h5> */}
+
+        {children}
       </div>
     </div>
   );
 };
 
-export default NoContactInfo;
+export default ErrorInfoBox;

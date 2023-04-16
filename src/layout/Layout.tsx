@@ -12,7 +12,7 @@ import SidebarMd from "../components/sidebars/SidebarMd";
  */
 const Layout: ({ children }: any) => JSX.Element = ({ children }) => {
   return (
-    <div className="flex flex-col flex-auto h-screen md:flex-row">
+    <div className="flex flex-col flex-auto h-full md:flex-row">
       <MobileMenu />
       <SidebarMd />
       <div className="grow">
