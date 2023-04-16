@@ -41,7 +41,10 @@ const MapComponent: () => JSX.Element = () => {
     fetch("https://disease.sh/v3/covid-19/countries").then((res) => res.json())
   );
 
-  if (isLoading) return <h2>'Loading...'</h2>;
+  if (isLoading)
+    return (
+      <h5 className="text-2xl p-5 mt-5 border bg-violet-100">Loading map...</h5>
+    );
 
   if (error) {
     return (

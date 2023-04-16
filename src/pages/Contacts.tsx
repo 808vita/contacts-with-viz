@@ -29,14 +29,16 @@ const Contacts: () => JSX.Element = () => {
     <div className="flex flex-col flex-auto justify-center items-center">
       <button
         onClick={() => navigate("/contacts/create")}
-        className="bg-violet-100 mt-10 me-5 mx-5 p-5 border hover:bg-violet-300"
+        className="text-xl bg-violet-100 mt-10 me-5 mx-5 p-5 border hover:bg-violet-300"
       >
         Create Contact
       </button>
 
-      {contactList.map((contact) => (
-        <ContactCard key={contact?.id} contact={contact} />
-      ))}
+      <div className="lg:grid grid lg:grid-cols-2 xl:grid-cols-3 lg:gap-5 w-full">
+        {contactList.map((contact) => (
+          <ContactCard key={contact?.id} contact={contact} />
+        ))}
+      </div>
       {contactList.length === 0 && (
         <ErrorInfoBox>
           <>

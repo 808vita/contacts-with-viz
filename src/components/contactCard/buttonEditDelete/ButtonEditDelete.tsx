@@ -36,10 +36,19 @@ const ButtonEditDelete = ({ contactId }: Props) => {
 
   return (
     <div>
-      <button onClick={handleEditClick}>edit contact</button>
-      <br />
+      <button
+        className="text-xl p-2 mt-5 mb-5 border w-full bg-lime-100 hover:bg-lime-300"
+        onClick={handleEditClick}
+      >
+        Edit
+      </button>
 
-      <button onClick={handleDeleteClick}>delete</button>
+      <button
+        className="text-xl p-2 mb-5 border w-full  bg-red-100 hover:bg-red-400"
+        onClick={handleDeleteClick}
+      >
+        Delete
+      </button>
     </div>
   );
 };
