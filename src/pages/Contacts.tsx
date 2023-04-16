@@ -25,7 +25,7 @@ const Contacts: () => JSX.Element = () => {
   const navigate = useNavigate();
 
   return (
-    <>
+    <div className="flex flex-col flex-auto justify-center items-center">
       <button onClick={() => navigate("/contacts/create")}>
         Create Contact
       </button>
@@ -34,7 +34,7 @@ const Contacts: () => JSX.Element = () => {
         <ContactCard key={contact?.id} contact={contact} />
       ))}
       {contactList.length === 0 && <NoContactInfo />}
-    </>
+    </div>
   );
 };
 
