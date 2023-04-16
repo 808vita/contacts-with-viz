@@ -1,6 +1,11 @@
 import React from "react";
 import ContactForm from "../components/contactForm/ContactForm";
 import ContactFormContextProvider from "../components/contactForm/hooks/ContactFormContext";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
+import { useNavigate } from "react-router-dom";
+import ContactCard from "../components/contactCard/ContactCard";
+
 /**
  *
  * @returns JSX.Element
@@ -16,10 +21,21 @@ import ContactFormContextProvider from "../components/contactForm/hooks/ContactF
  * display info when there are no contacts to display
  */
 const Contacts: () => JSX.Element = () => {
+  const { contactList } = useSelector((state: RootState) => state.contact);
+  console.log(contactList, "contactList");
+
+  const navigate = useNavigate();
+
   return (
-    <ContactFormContextProvider>
-      <ContactForm />
-    </ContactFormContextProvider>
+    <>
+      <button onClick={() => navigate("/contacts/create")}>
+        Create Contact
+      </button>
+
+      {contactList.map((contact) => (
+        <ContactCard key={contact?.id} contact={contact} />
+      ))}
+    </>
   );
 };
 

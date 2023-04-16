@@ -17,7 +17,7 @@ import NotFound from "./NotFound";
  *
  * edit / delete contact
  *
- * display info when there are no contacts to display
+ * display info when there are no contacts to display & redirect 
  */
 const ContactsCreateEdit: () => JSX.Element = () => {
   const { path } = useParams();

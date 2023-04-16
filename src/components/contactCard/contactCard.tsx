@@ -1,18 +1,40 @@
 import React from "react";
 import ButtonEditDelete from "./buttonEditDelete/ButtonEditDelete";
+import { ContactData } from "../../redux/slices/contactSlice";
+
 /**
  *
  * @returns JSX.Element
  *
  * contact card component
  */
-const contactCard: () => JSX.Element = () => {
+
+interface Props {
+  contact: ContactData;
+}
+/**
+ *
+ * @param ContactData
+ * @returns jsx
+ *
+ * contact card component
+ */
+const ContactCard = ({ contact }: Props) => {
   return (
     <div>
-      contactCard
-      <ButtonEditDelete />
+      <div key={contact?.id}>
+        <div>
+          <p>{contact?.id}</p>
+          <p>{contact?.firstName}</p>
+          <p>{contact?.lastName}</p>
+          <p>{contact?.status}</p>
+
+          <ButtonEditDelete contactId={contact?.id} />
+        </div>
+        <br />
+      </div>
     </div>
   );
 };
 
-export default contactCard;
+export default ContactCard;

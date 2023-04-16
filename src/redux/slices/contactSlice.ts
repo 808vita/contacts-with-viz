@@ -9,6 +9,7 @@ export interface ContactData {
   status: string;
 }
 
+
 export interface ContactList {
   contactList: ContactData[] | any[];
 }
@@ -62,7 +63,7 @@ export const contactSlice = createSlice({
      * @param action
      * delete contact data in contactList[] using id
      */
-    deleteContact: (state, action: PayloadAction<ContactData>) => {
+    deleteContact: (state, action: PayloadAction<string>) => {
       const deleteContactId = action.payload;
       const prevContactList = state.contactList;
       state.contactList = prevContactList.filter(
