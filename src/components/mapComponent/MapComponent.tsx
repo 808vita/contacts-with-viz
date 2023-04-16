@@ -88,10 +88,21 @@ const MapComponent: () => JSX.Element = () => {
                     (event.target.style.display = "inline-block")
                   }
                 />
-                <p>Country:{country?.country}</p>
-                <p>Total Active:{country?.active}</p>
-                <p>Recovered:{country?.recovered}</p>
-                <p>Death:{country?.deaths}</p>
+                <p className="text-lg">
+                  Country:
+                  <span className="font-semibold">{country?.country}</span>
+                </p>
+                <p className="text-lg">
+                  Total Active:
+                  <span className="font-semibold">{country?.active}</span>
+                </p>
+                <p className="text-lg">
+                  Recovered:
+                  <span className="font-semibold">{country?.recovered}</span>
+                </p>
+                <p className="text-lg">
+                  Death:<span className="font-semibold">{country?.deaths}</span>
+                </p>
               </div>
             </Popup>
           </Marker>

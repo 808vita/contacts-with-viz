@@ -7,7 +7,7 @@ const MenuItems = () => {
   return (
     <div className="flex flex-col justify-center items-center">
       <div
-        className="flex justify-center items-center  p-5 md:p-10 w-full cursor-pointer hover:bg-violet-300"
+        className="flex justify-center items-center  p-5 w-full cursor-pointer hover:bg-violet-300"
         onClick={() => navigate("/contacts")}
       >
         <span className="text-2xl mx-3">
