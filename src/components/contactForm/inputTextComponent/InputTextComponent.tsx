@@ -17,7 +17,6 @@ const InputTextComponent = () => {
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
             placeholder="Enter first name"
-            required
             className="w-4/5 p-5 border bg-violet-100"
           />
         </div>
@@ -32,7 +31,6 @@ const InputTextComponent = () => {
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
             placeholder="Enter last name"
-            required
             className="w-4/5 p-5 border bg-violet-100"
           />
         </div>

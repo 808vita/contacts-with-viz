@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { addContact, editContact } from "../../redux/slices/contactSlice";
@@ -17,6 +17,8 @@ export interface contactDataWithId extends contactData {
 const SingleBigButton = () => {
   const { firstName, lastName, status, editId } = useContactFormContext();
   const contactList = useSelector((state: RootState) => state.contact);
+
+  const [error, SetError] = useState(false);
 
   const { path } = useParams();
   console.log(path, "params");
@@ -37,6 +39,14 @@ const SingleBigButton = () => {
       id: genId,
     };
 
+    if (!firstName || !lastName || !status || !genId) {
+      SetError(true);
+
+      setTimeout(() => SetError(false), 3000);
+
+      return;
+    }
+
     console.log("contactWithId", contactWithId);
     console.log("contactList", contactList);
     dispatch(addContact(contactWithId));
@@ -48,14 +58,20 @@ const SingleBigButton = () => {
    * and redirect back to contact page
    */
   const editContactInStore = () => {
-    const genId = String(new Date().getTime());
-
     const contactWithId: contactDataWithId = {
       firstName,
       lastName,
       status,
       id: editId,
     };
+
+    if (!firstName || !lastName || !status || !editId) {
+      SetError(true);
+
+      setTimeout(() => SetError(false), 3000);
+
+      return;
+    }
 
     console.log("contactWithId", contactWithId);
     console.log("contactList", contactList);
@@ -90,19 +106,25 @@ const SingleBigButton = () => {
     }
   };
 
-  const buttonText = "oof";
-
   return (
-    <button
-      onClick={clickHandler}
-      className="text-2xl font-thin bg-violet-100 mt-10 mb-5  p-5 border hover:bg-violet-300"
-    >
-      {path === "create"
-        ? "Save Contact"
-        : path === "edit"
-        ? "Save Edited Contact"
-        : "default button"}
-    </button>
+    <>
+      {error && (
+        <div className=" p-5 m-5 text-xl font-thin border bg-red-100">
+          Fill all fields!
+        </div>
+      )}
+
+      <button
+        onClick={clickHandler}
+        className="text-2xl font-thin bg-violet-100 mt-10 mb-5  p-5 border hover:bg-violet-300"
+      >
+        {path === "create"
+          ? "Save Contact"
+          : path === "edit"
+          ? "Save Edited Contact"
+          : "default button"}
+      </button>
+    </>
   );
 };
 
