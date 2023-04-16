@@ -2,6 +2,7 @@ import React from "react";
 import ErrorInfoBox from "../noContactInfo/ErrorInfoBox";
 import { useQuery } from "react-query";
 import StatCardComponent from "./statCard/StatCardComponent";
+import BackToTopComponent from "../backToTop/BackToTopComponent";
 
 const statCardOrder = [
   "todayCases",
@@ -52,10 +53,11 @@ const StatBoardComponent = () => {
   console.log(statBoardData, "statBoardData");
 
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 lg:gap-2 w-full">
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 lg:gap-2 w-full relative">
       {statCardOrder.map((key) => (
         <StatCardComponent key={key} heading={key} data={statBoardData[key]} />
       ))}
+      <BackToTopComponent />
     </div>
   );
 };
