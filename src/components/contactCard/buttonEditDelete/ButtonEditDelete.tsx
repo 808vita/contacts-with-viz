@@ -29,7 +29,7 @@ const ButtonEditDelete = ({ contactId }: Props) => {
    * on delete button click delete the current item from store using the id
    */
   const handleDeleteClick = () => {
-    console.log("clicked del : " + contactId);
+    // console.log("clicked del : " + contactId);
 
     dispatch(deleteContact(contactId));
   };

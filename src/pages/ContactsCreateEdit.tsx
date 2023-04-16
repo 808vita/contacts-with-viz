@@ -21,7 +21,7 @@ import NotFound from "./NotFound";
  */
 const ContactsCreateEdit: () => JSX.Element = () => {
   const { path } = useParams();
-  console.log(path, "params");
+  // console.log(path, "params");
 
   if (path === "create") {
     return (

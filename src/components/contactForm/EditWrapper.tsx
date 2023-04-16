@@ -20,18 +20,18 @@ import ErrorInfoBox from "../noContactInfo/ErrorInfoBox";
 const EditWrapper = ({ children }: PropsChildren) => {
   const [searchParams] = useSearchParams();
   const cid = searchParams.get("cid");
-  console.log(cid, "editContactId");
+  // console.log(cid, "editContactId");
 
   const { editId, setEditId, setFirstName, setLastName, setStatus } =
     useContactFormContext();
 
   const { contactList } = useSelector((state: RootState) => state.contact);
-  console.log(contactList, "contactList");
+  // console.log(contactList, "contactList");
 
   const [editContactData] = contactList.filter(
     (contact) => contact?.id === cid
   );
-  console.log(editContactData, "editContactData");
+  // console.log(editContactData, "editContactData");
 
   const navigate = useNavigate();
 
@@ -47,7 +47,7 @@ const EditWrapper = ({ children }: PropsChildren) => {
   if (!editContactData?.id) {
     // if not valid contact id
     // display error info and redirect to contacts page
-    console.log("does not exists -> redirect logic");
+    // console.log("does not exists -> redirect logic");
     setTimeout(() => navigate("/contacts"), 2000);
 
     return (

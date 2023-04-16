@@ -21,7 +21,7 @@ import ErrorInfoBox from "../components/noContactInfo/ErrorInfoBox";
  */
 const Contacts: () => JSX.Element = () => {
   const { contactList } = useSelector((state: RootState) => state.contact);
-  console.log(contactList, "contactList");
+  // console.log(contactList, "contactList");
 
   const navigate = useNavigate();
 

@@ -56,14 +56,14 @@ const LineChartComponent: () => JSX.Element = () => {
     );
   }
 
-  console.log(dateWiseData, "data");
+  // console.log(dateWiseData, "data");
   const dates = Object.keys(dateWiseData?.cases).slice(-50);
 
   const activeCases = Object.values(dateWiseData?.cases).slice(-50);
 
-  console.log(dates, "dates");
-  console.log(typeof dates[0], dates[0]);
-  console.log(activeCases, "activeCases");
+  // console.log(dates, "dates");
+  // console.log(typeof dates[0], dates[0]);
+  // console.log(activeCases, "activeCases");
 
   const data = {
     labels: dates,

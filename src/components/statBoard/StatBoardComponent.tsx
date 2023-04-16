@@ -55,7 +55,7 @@ const StatBoardComponent = () => {
     );
   }
 
-  console.log(statBoardData, "statBoardData");
+  // console.log(statBoardData, "statBoardData");
 
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 lg:gap-2 w-full relative">

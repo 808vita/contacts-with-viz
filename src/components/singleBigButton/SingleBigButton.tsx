@@ -32,7 +32,7 @@ const SingleBigButton = () => {
   const [error, SetError] = useState(false);
 
   const { path } = useParams();
-  console.log(path, "params");
+  // console.log(path, "params");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -58,8 +58,8 @@ const SingleBigButton = () => {
       return;
     }
 
-    console.log("contactWithId", contactWithId);
-    console.log("contactList", contactList);
+    // console.log("contactWithId", contactWithId);
+    // console.log("contactList", contactList);
     dispatch(addContact(contactWithId));
     navigate("/contacts");
   };
@@ -84,8 +84,8 @@ const SingleBigButton = () => {
       return;
     }
 
-    console.log("contactWithId", contactWithId);
-    console.log("contactList", contactList);
+    // console.log("contactWithId", contactWithId);
+    // console.log("contactList", contactList);
 
     dispatch(editContact(contactWithId));
 
@@ -100,7 +100,7 @@ const SingleBigButton = () => {
    * "/edit" -> then editContactInStore
    */
   const clickHandler = () => {
-    console.log("clicked");
+    // console.log("clicked");
 
     if (path === "create") {
       addContactToStore();
@@ -108,7 +108,7 @@ const SingleBigButton = () => {
     }
 
     if (path === "edit") {
-      console.log("edit oof");
+      // console.log("edit oof");
 
       // need validations
       // check if id exists?

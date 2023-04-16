@@ -11,7 +11,7 @@ const Navbar: () => JSX.Element = () => {
   const { pathname } = useLocation();
   const [navText, setNavText] = useState("");
 
-  console.log(pathname, "pathname");
+  // console.log(pathname, "pathname");
 
   useEffect(() => {
     switch (pathname) {
