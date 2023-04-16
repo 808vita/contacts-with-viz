@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
  * @returns JSX.Element
  *
  * Navbar component
+ * based on path display relevant text 
  */
 const Navbar: () => JSX.Element = () => {
   const { pathname } = useLocation();

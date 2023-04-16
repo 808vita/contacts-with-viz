@@ -1,14 +1,31 @@
 import React from "react";
 import useContactFormContext from "../hooks/useContactFormContext";
 
+/**
+ * 
+ * @returns jsx
+ * 
+ * input radio component
+ * 
+ */
 const InputRadioComponent = () => {
   const { status, setStatus } = useContactFormContext();
 
+  /**
+   * 
+   * @param e 
+   * onchange of input set status state
+   */
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedOption = e?.target?.value;
     setStatus(selectedOption);
   };
 
+  /**
+   * 
+   * @param status 
+   * div click -> set stauts state 
+   */
  const handleClick = (status: string) => {
    setStatus(status);
  };

@@ -14,6 +14,17 @@ export interface contactDataWithId extends contactData {
   id: string;
 }
 
+/**
+ * 
+ * @returns jsx
+ * 
+ * big button -> based on url changes to handle:
+ * 
+ * saving a new contact 
+ * 
+ * OR 
+ * editing an existing contact
+ */
 const SingleBigButton = () => {
   const { firstName, lastName, status, editId } = useContactFormContext();
   const contactList = useSelector((state: RootState) => state.contact);

@@ -12,7 +12,13 @@ import ContactsCreateEdit from "./pages/ContactsCreateEdit";
 
 // Create a client
 const queryClient: QueryClient = new QueryClient();
-
+/**
+ * 
+ * @returns jsx
+ *  react query provider wrapper used here
+ *  layout wrapper used here 
+ *  react router routes wrapper used here
+ */
 function App() {
   return (
     <QueryClientProvider client={queryClient}>

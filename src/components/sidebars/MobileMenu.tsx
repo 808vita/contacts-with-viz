@@ -9,6 +9,9 @@ import MenuItems from "./MenuItems";
 const MobileMenu: () => JSX.Element = () => {
   const [menuActive, setMenuActive] = useState(false);
 
+  /**
+   * used for autoclosing the menu
+   */
   const handleMenuClick = () => {
     setMenuActive((prev) => !prev);
   };

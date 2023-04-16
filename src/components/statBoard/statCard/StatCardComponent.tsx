@@ -45,6 +45,13 @@ interface Props {
   data: string;
 }
 
+/**
+ * 
+ * @param param0 
+ * @returns jsx
+ * 
+ * stat card 
+ */
 const StatCardComponent = ({ heading, data }: Props) => {
   return (
     <div className="flex flex-col p-10 m-5 justify-center items-center bg-violet-200 hover:bg-violet-100">

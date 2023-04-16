@@ -6,6 +6,13 @@ import { BrowserRouter } from "react-router-dom";
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
 
+/**
+ * index 
+ * 
+ * redux wrapper used here
+ * browser router wrapper used here 
+ * place App component here 
+ */
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );

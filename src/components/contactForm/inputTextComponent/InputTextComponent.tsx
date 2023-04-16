@@ -1,5 +1,12 @@
 import useContactFormContext from "../hooks/useContactFormContext";
 
+/**
+ * 
+ * @returns jsx
+ * uses context for accessing state and setState setters
+ * 
+ * input text components for the form
+ */
 const InputTextComponent = () => {
   const { firstName, setFirstName, lastName, setLastName } =
     useContactFormContext();

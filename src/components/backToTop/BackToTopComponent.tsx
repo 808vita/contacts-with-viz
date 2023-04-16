@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 
+/**
+ * scroll to top function
+ */
 const goToTop = () => {
   window.scrollTo({
     top: 0,
@@ -7,6 +10,13 @@ const goToTop = () => {
   });
 };
 
+/**
+ * 
+ * @returns jsx
+ * scroll to top 
+ * 
+ * felt the need in smaller view port
+ */
 const BackToTopComponent = () => {
   const [showTopBtn, setShowTopBtn] = useState(false);
   useEffect(() => {

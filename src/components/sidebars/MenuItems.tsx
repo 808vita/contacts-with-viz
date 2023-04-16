@@ -4,7 +4,12 @@ import { useNavigate } from "react-router-dom";
 export interface PropsHandleMenuClick {
   handleMenuClick: () => void;
 }
-
+/**
+ * 
+ * @param param0 
+ * @returns jsx
+ * menu items for mobile & sidebarMd
+ */
 const MenuItems = ({ handleMenuClick }: PropsHandleMenuClick) => {
   const navigate = useNavigate();
 

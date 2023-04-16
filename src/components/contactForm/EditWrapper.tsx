@@ -6,6 +6,17 @@ import { RootState } from "../../redux/store";
 import useContactFormContext from "./hooks/useContactFormContext";
 import ErrorInfoBox from "../noContactInfo/ErrorInfoBox";
 
+/**
+ * 
+ * @param param0 
+ * @returns jsx
+ * 
+ * edit wrapper component used for following things:
+ * 
+ * load the contact data if url cid mathces
+ * 
+ * show error and redirect if there no matching contact in the redux store
+ */
 const EditWrapper = ({ children }: PropsChildren) => {
   const [searchParams] = useSearchParams();
   const cid = searchParams.get("cid");

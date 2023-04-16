@@ -2,6 +2,13 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { PropsHandleMenuClick } from "./MenuItems";
 
+/**
+ * 
+ * @param param0 
+ * @returns jsx
+ * 
+ * minimized version for sidebar for higher resolutions
+ */
 const MenuItemsMinimized = ({ handleMenuClick }: PropsHandleMenuClick) => {
   const navigate = useNavigate();
 

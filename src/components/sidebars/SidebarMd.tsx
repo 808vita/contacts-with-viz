@@ -10,10 +10,16 @@ import MenuItemsMinimized from "./MenuItemsMinimized";
 const SidebarMd: () => JSX.Element = () => {
   const [menuActive, setMenuActive] = useState(false);
 
+  /**
+   * used for autoclosing the menu
+   */
   const handleMenuClick = () => {
     setMenuActive((prev) => !prev);
   };
 
+  /**
+   * used for autoclosing the menu
+   */
   const hideMenu = () => {
     setMenuActive(false);
   };

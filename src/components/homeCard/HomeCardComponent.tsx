@@ -1,6 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
+/**
+ * 
+ * @returns jsx
+ * 
+ * cards used in home route
+ */
 const HomeCardComponent = () => {
   const navigate = useNavigate();
   return (

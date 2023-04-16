@@ -24,6 +24,11 @@ const statCardOrder = [
   "criticalPerOneMillion",
 ];
 
+/**
+ * 
+ * @returns jsx
+ * component for rendering stat info cards 
+ */
 const StatBoardComponent = () => {
   const {
     isLoading,
